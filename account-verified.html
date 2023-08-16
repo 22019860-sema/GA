@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <!--
+    I declare that this code was written by me. 
+    I will not copy or allow others to copy my code. 
+    I understand that copying code is considered as plagiarism.
+    Student Name: Sema Nur Genc
+    Student ID: 22019860
+    Class: C369-3D-E63C-A
+    Date/Time Last modified: 14/8/2023
+  -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f1f1f1;
+    }
+    header {
+        background-color: lightblue; 
+        color: #fff;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .logo {
+        width: 150px; /* Set the width to match your logo size */
+    }
+    nav {
+        background-color: #00548c; /* Darker blue for navigation */
+        color: #fff;
+        padding: 10px;
+    }
+    nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+    }
+    nav li {
+        margin-right: 20px;
+    }
+    nav a {
+    text-decoration: none;
+    color: #fff; /* Set the color to white */
+    transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+        color: lightblue; 
+    }
+    .container {
+        padding: 20px;
+        text-align: center;
+    }
+    .hero {
+        background-image: url("https://images.unsplash.com/photo-1613476262174-24a9db0b2510");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #00548c;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+    }
+    .hero h1 {
+        font-size: 36px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+    .hero p {
+        font-size: 20px;
+        max-width: 600px;
+        line-height: 1.6;
+    }
+    .cta-btn {
+        background-color: #fff;
+        color: #0070ba;
+        padding: 12px 30px;
+        font-size: 18px;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .cta-btn:hover {
+        background-color: #0070ba;
+        color: #fff;
+    }
+    .services {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 50px;
+    }
+    .service-item {
+        max-width: 300px;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+    .service-item h2 {
+        font-size: 24px;
+        color: #0070ba;
+        margin-bottom: 10px;
+    }
+    .service-item p {
+        font-size: 16px;
+        color: #333;
+    }
+    .transaction-list {
+        margin-top: 50px;
+    }
+    .transaction-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 15px 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        margin-bottom: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .transaction-item .transaction-desc {
+        display: flex;
+        flex-direction: column;
+    }
+    .transaction-item h3 {
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
+    .transaction-item p {
+        color: #555;
+    }
+    .transaction-item .amount {
+        font-size: 18px;
+        font-weight: bold;
+    }
+</style>
+<body>
+    <header>
+        <a href="login.html" class="logout-btn">Logout</a>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="account-verified.html">Home</a></li>
+            <li><a href="transfer.html">Send Money</a></li>
+            <li><a href="txnhistory.html">My transfers</a></li>
+            <li><a href="card.html">My cards</a></li>
+            <li><a href="contact.html">Help</a></li>
+        </ul>
+    </nav>
+    <div class="hero">
+        <div class="container">
+            <img src="logo.png" alt="semBANKS Logo" class="logo">
+            <h1>Welcome back, Sema Nur!</h1>
+            <p>Manage your finances and make secure transactions with semBANKS.</p>
+            <button class="cta-btn">Explore Your Account</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>Featured Services</h2>
+        <div class="services">
+            <a href="transfer.html" class="service-link">
+                <div class="service-item">
+                    <h2>Send Money</h2>
+                    <p>Send money to friends, family, or businesses with just a few clicks.</p>
+                </div>
+            </a>
+            <a href="txnhistory.html" class="service-link">
+                <div class="service-item">
+                    <h2>Transaction history</h2>
+                    <p>Track recent transactions made in detail!</p>
+                </div>
+            </a>
+            <a href="accounts.html" class="service-link">
+                <div class="service-item">
+                    <h2>Open an account</h2>
+                    <p>Shop securely online and pay with semBANKS at your favorite stores.</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

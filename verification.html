@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <!--
+    I declare that this code was written by me. 
+    I will not copy or allow others to copy my code. 
+    I understand that copying code is considered as plagiarism.
+    Student Name: Sema Nur Genc
+    Student ID: 22019860
+    Class: C369-3D-E63C-A
+    Date/Time Last modified: 14/8/2023
+  -->  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Online Banking Sign-Up</title>
+</head>
+<style>
+    body {
+        background: linear-gradient(to right, #78aec5, #5191a6, #2d6f8b);
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    .container {
+        background-color: #ffffff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 400px;
+        margin-top: 20px;
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    input, select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    /* Additional styling for form sections */
+    section {
+        margin-top: 20px;
+    }
+
+    h2 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+</style>
+<body>
+    <header>
+        <h1>Online Banking services</h1>
+    </header>
+
+    <form id="signupForm">
+        <!-- Part 1: Card Details -->
+        <section>
+            <h2>Card Details</h2>
+            <input type="text" id="cardNumber" placeholder="Last 8 Digits of Card Number" maxlength="8" required>
+            <input type="password" id="cardPIN" placeholder="6-Digit PIN" maxlength="6" required>
+        </section>
+        
+        <!-- Part 2: Personal Details -->
+        <section>
+            <h2>Personal Details</h2>
+            <label for="idType">Identification Type</label>
+            <select id="idType" required>
+                <option value="" disabled selected>Select an option</option>
+                <option value="SG_NRIC">Singaporean / PR NRIC</option>
+                <option value="MY_IC">Malaysian IC</option>
+                <option value="Passport">Passport</option>
+            </select>
+            
+            <input type="text" id="idNumber" placeholder="Identification Number" required>
+            
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob" required>
+        </section>
+
+        <button type="submit" id="Next">Next</button>
+    </form>
+
+    <script>
+        const signupForm = document.getElementById("signupForm");
+        const cardNumberInput = document.getElementById("cardNumber");
+        const cardPINInput = document.getElementById("cardPIN");
+        const idTypeSelect = document.getElementById("idType");
+        const idNumberInput = document.getElementById("idNumber");
+        const dobInput = document.getElementById("dob");
+
+        signupForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            if (!validateCardDetails() || !validatePersonalDetails()) {
+                return;
+            }
+
+            window.location.href = "signup.html";
+        });
+
+        function validateCardDetails() {
+            const cardNumber = cardNumberInput.value;
+            const cardPIN = cardPINInput.value;
+
+            if (cardNumber.length !== 8 || isNaN(cardNumber)) {
+                alert("Invalid card number. Please enter the last 8 digits of your card.");
+                return false;
+            }
+
+            if (cardPIN.length !== 6 || isNaN(cardPIN)) {
+                alert("Invalid PIN. Please enter a 6-digit PIN.");
+                return false;
+            }
+
+            return true;
+        }
+
+        function validatePersonalDetails() {
+            const idType = idTypeSelect.value;
+            const idNumber = idNumberInput.value;
+            const dob = dobInput.value;
+
+            if (idType === "") {
+                alert("Please select an Identification Type.");
+                return false;
+            }
+
+            if (idNumber === "") {
+                alert("Please enter your Identification Number.");
+                return false;
+            }
+
+            if (dob === "") {
+                alert("Please select your Date of Birth.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+</html>

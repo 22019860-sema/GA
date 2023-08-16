@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--
+    I declare that this code was written by me. 
+    I will not copy or allow others to copy my code. 
+    I understand that copying code is considered as plagiarism.
+    Student Name: Sema Nur Genc
+    Student ID: 22019860
+    Class: C369-3D-E63C-A
+    Date/Time Last modified: 14/8/2023
+  -->
+  <a href="account-verified.html">Back to my account</a>
+  <title>Send Money</title>
+  <!-- Bootstrap CSS Link -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      padding: 20px;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .card {
+      width: 400px;
+      height: 700px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .card-logo img {
+      width: 150px;
+      height: 75px;
+    }
+
+    .card-title {
+      font-size: 28px;
+      color: #333;
+      margin: 15px 0;
+      font-weight: bold;
+    }
+
+    .card-text {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .e-wallet {
+      max-width: 300px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .e-wallet .balance {
+      text-align: center;
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    .add-funds label {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 5px;
+      text-align: left;
+    }
+
+    .add-funds input[type="text"],
+    .add-funds input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .add-funds button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .add-funds button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="card-logo">
+        <img src="iamStudent.png" alt="Logo">
+      </div>
+      <h2 class="card-title">Send Money</h2>
+      <p class="card-text">Choose the account you want to send to and the amount:</p>
+      <div class="e-wallet">
+        <h2 class="balance" id="balance">Balance: $5000.00</h2>
+        <div class="add-funds">
+          <label for="accountNumber">Account Number:</label>
+          <input type="text" id="accountNumber" placeholder="Enter account number" required>
+          <span id="accountNumberError" class="validation-error"></span>
+          <label for="amount">Amount:</label>
+          <input type="number" id="amount" step="0.01" min="0" placeholder="Enter amount" required>
+          <button onclick="transfer()">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function isValidAccountNumber(accountNumber) {
+      return accountNumber.length >= 6;
+    }
+
+    function transfer() {
+      const amountInput = document.getElementById('amount');
+      const accountNumberInput = document.getElementById('accountNumber');
+      const amount = parseFloat(amountInput.value);
+  
+      if (isNaN(amount) || amount <= 0) {
+        alert('Please enter a valid amount.');
+        return;
+      }
+
+      const accountNumber = accountNumberInput.value;
+      if (!isValidAccountNumber(accountNumber)) {
+        document.getElementById('accountNumberError').textContent = 'Invalid account number (minimum length: 6 characters).';
+        return;
+      } else {
+        document.getElementById('accountNumberError').textContent = ''; // Clear error message
+      }
+  
+      const balanceElement = document.getElementById('balance');
+      const currentBalance = parseFloat(balanceElement.innerText.split('$')[1]);
+  
+      if (amount > currentBalance) {
+        alert('Insufficient funds. You cannot send more than your current balance.');
+        return;
+      }
+  
+      // Update the balance displayed on the page
+      const updatedBalance = currentBalance - amount;
+      balanceElement.innerText = `Balance: $${updatedBalance.toFixed(2)}`;
+  
+      // Add the transaction to the transaction history
+      const transaction = {
+        description: `Sent $${amount.toFixed(2)} to account ${accountNumberInput.value}`,
+        date: new Date().toLocaleString(),
+        amount: amount.toFixed(2),
+        recipientAccount: accountNumberInput.value // Save recipient's account number
+      };
+  
+      const transactionHistory = JSON.parse(localStorage.getItem('transactionHistory')) || [];
+      transactionHistory.push(transaction);
+      localStorage.setItem('transactionHistory', JSON.stringify(transactionHistory));
+
+      amountInput.value = '';
+      accountNumberInput.value = '';
+      window.location.href = "QR.html";
+    }
+  </script>
+  
+</body>
+</html>

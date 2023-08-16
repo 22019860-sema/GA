@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!--
+    I declare that this code was written by me. 
+    I will not copy or allow others to copy my code. 
+    I understand that copying code is considered as plagiarism.
+    Student Name: Sema Nur Genc
+    Student ID: 22019860
+    Class: C369-3D-E63C-A
+    Date/Time Last modified: 14/8/2023
+  -->
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About us</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap');
+  
+    body {
+      margin: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+  
+    /* CSS for header */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #f5f5f5;
+      padding: 20px;
+    }
+  
+    .header .logo {
+      font-size: 30px;
+      font-family: 'Sriracha', cursive;
+      color: #333;
+      text-decoration: none;
+    }
+
+    /* CSS for dropdown menu */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  background-color: #f5f5f5;
+  color: #333;
+  padding: 20px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.dropbtn:hover {
+  background-color: #ddd;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: #333;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.2s ease;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+  
+    .nav-items {
+      display: flex;
+      background-color: #f5f5f5;
+      margin-left: auto;
+    }
+  
+    .nav-items a {
+      text-decoration: none;
+      color: #333;
+      padding: 20px;
+      transition: color 0.2s ease;
+    }
+  
+    .nav-items a:hover {
+      color: #5edaf0;
+    }
+  
+    /* CSS for main element */  
+    .about {
+      text-align: center;
+      padding: 40px;
+    }
+  
+    .about h1 {
+      font-family: 'Sriracha', cursive;
+      font-size: 50px;
+      color: #333;
+      text-transform: uppercase;
+      margin: 0;
+      padding-bottom: 20px;
+    }
+  
+    .about p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #666;
+      margin-bottom: 30px;
+    }
+
+    /* CSS for footer */
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #302f49;
+      color: #fff;
+      padding: 40px;
+    }
+  
+    .copy {
+      font-size: 16px;
+    }
+  
+    .bottom-links {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 40px 0;
+    }
+  
+    .bottom-links .links {
+      text-align: center;
+    }
+  
+    .bottom-links .links span {
+      font-size: 20px;
+      color: #fff;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+  
+    .bottom-links .links a {
+      text-decoration: none;
+      color: #a1a1a1;
+      padding: 10px 20px;
+      transition: color 0.2s ease;
+    }
+  
+    .bottom-links .links a:hover {
+      color: #fff;
+    }
+
+    /* Add the following CSS to float the "Login" button to the right */
+    .login-btn {
+      /* New styles */
+      margin-left: auto;
+      text-decoration: none;
+      color: #333;
+      padding: 10px 20px;
+      border: 1px solid #333;
+      border-radius: 5px;
+      transition: background-color 0.2s ease;
+    }
+
+    .login-btn:hover {
+      /* New styles */
+      background-color: #5edaf0;
+      color: #000;
+    }
+  
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <a href="#" class="logo">semBANKS</a>
+    <nav class="nav-items">
+        <a href="home.html">Home</a>
+        <a href="#">About</a>
+        <a href="services.html">Services</a>
+        <div class="dropdown">
+          <button class="dropbtn">Accounts <i class="fas fa-caret-down"></i></button>
+          <div class="dropdown-content">
+            <a href="myAccount.html">myAccount</a>
+            <a href="mySavings.html">mySavings</a>
+            <a href="iamStudent.html">iamStudent</a>
+          </div>
+        </div>
+        <a href="contact.html">Contact</a>
+    </nav>
+    <a href="login.html" class="login-btn">Login</a>
+  </header>
+  <main>
+    <div class="about">
+    <h1>WE<br>ARE</h1>
+    <p>Welcome to Sembanks, your friendly and reliable banking partner. We understand that banking is an integral part of your financial life and that's why we provide you with top-notch banking solutions to make your banking experience seamless.</p>
+    <p> Sembanks, we believe that every individual deserves personalized banking experience. We take the time to learn and understand your financial needs and provide you with the best banking solutions that align with those needs. Our commitment to your financial success is unwavering.</p>
+    <p>Our services include personal and business banking, loans, mortgages, savings, investments, and much more. Our wide range of services is tailored to meet your financial needs, whether you're starting your own business, saving up for a new home, or looking for ways to grow your wealth.</p>
+    <p>At Sembanks, we also understand the importance of convenience and accessibility. That's why we have made our banking services easily accessible online and through our mobile app. Our online banking platform offers you the opportunity to bank from anywhere at any time, making banking easy and convenient for you.</p>
+    <p>We believe in being transparent, honest, and trustworthy. We strive to build strong relationships with our customers based on mutual trust and respect. We understand that banking is all about relationships, and we are committed to building a long-lasting relationship with you.</p>
+    </div>
+
+  <footer class="footer">
+    <div class="copy">&copy; 2022 Developer</div>
+    <div class="bottom-links">
+      <div class="links">
+        <span>More Info</span>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="links">
+        <span>Social Links</span>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

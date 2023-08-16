@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+      <!--
+    I declare that this code was written by me. 
+    I will not copy or allow others to copy my code. 
+    I understand that copying code is considered as plagiarism.
+    Student Name: Sema Nur Genc
+    Student ID: 22019860
+    Class: C369-3D-E63C-A
+    Date/Time Last modified: 14/8/2023
+  -->
+  <a href="account-verified.html">Back to my account</a>
+<head>
+  <title>Bank Card Design</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+body {
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      background-color: #ffefd5;
+      padding: 20px;
+}
+h1 {
+    color:#ff7f50;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.card {
+    width: 500px;
+    height: 300px;
+    color: #fff;
+    cursor: pointer;
+    perspective: 1000px;
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+}
+
+.front, .back {
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(45deg, #0045c7, #ff2c7d);
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px 30px;
+    border-radius: 15px;
+    overflow: hidden;
+    z-index: 1;
+    backface-visibility: hidden;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.map-img {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.3;
+    z-index: -1;
+}
+
+.card-no {
+    font-size: 35px;
+    margin-top: 60px;
+}
+
+.card-holder {
+    font-size: 12px;
+    margin-top: 40px;
+}
+
+.name {
+    font-size: 22px;
+    margin-top: 20px;
+}
+
+.bar {
+    background: #222;
+    margin-left: -30px;
+    margin-right: -30px;
+    height: 60px;
+    margin-top: 10px;
+}
+
+.card-cvv {
+    margin-top: 20px;
+}
+
+.card-cvv div {
+    flex: 1;
+}
+
+.card-cvv img {
+    width: 100%;
+    display: block;
+    line-height: 0;
+}
+
+.card-cvv p {
+    background: #fff;
+    color: #000;
+    font-size: 22px;
+    padding: 10px 20px;
+}
+
+.signature {
+    margin-top: 30px;
+}
+
+.back {
+    transform: rotateY(180deg);
+}
+
+.card:hover .card-inner {
+    transform: rotateY(-180deg);
+}
+
+.custom-font{
+    font-family: 'Righteous';
+    font-size: x-large;
+}
+.e-wallet {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+    
+}
+
+.e-wallet .balance {
+    text-align: center;
+    font-size: 32px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #8a2be2;
+    margin-bottom: 20px;
+}
+
+.add-funds {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    }
+
+    .add-funds button {
+      padding: 10px 20px;
+      background-color: #8a2be2;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .add-funds button:hover {
+      background-color: #6e1bbf;
+    }
+
+    .Payment button {
+      padding: 10px 20px;
+      background-color: #8a2be2;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease-in-out;
+    }
+  </style>
+</head>
+<body>
+    <header>
+        <h1>iamStudent card</h1>
+    </header>
+    <div class="container">
+    <div class="card">
+        <div class="card-inner">
+            <div class="front">
+                <img src="https://i.ibb.co/PYss3yv/map.png" class="map-img">
+                <div class="row">
+                    <img src="https://i.ibb.co/G9pDnYJ/chip.png" width="60px">
+                    <p class="custom-font">iamStudent</p>
+                </div>
+                <div class="row card-no">
+                    <p>5244</p>
+                    <p>2150</p>
+                    <p>8252</p>
+                    <p>6420</p>
+                </div>
+                <div class="row card-holder">
+                    <p>CARD HOLDER</p>
+                    <p>VALID TILL</p>
+                </div>
+                <div class="row name">
+                    <p>SEMA NUR GENC</p>
+                    <p>10 / 25</p>
+                </div>
+            </div>
+            <div class="back">
+                <img src="https://i.ibb.co/PYss3yv/map.png" class="map-img">
+                <div class="bar"></div>
+                <div class="row card-cvv">
+                    <div>
+                        <img src="https://i.ibb.co/S6JG8px/pattern.png">
+                    </div>
+                    <p>824</p>
+                </div>
+                <div class="row signature">
+                    <p>CUSTOMER SIGNATURE</p>
+                    <p class="custom-font">iamStudent</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="e-wallet">
+        <h2 class="balance" id="balance">Balance: $5000.00</h2>
+    
+        <div class="transfer">
+          <button onclick= "redirectToPayment()">Send money</button>
+          &emsp;
+            </div>
+      </div>
+    
+      <script>
+        function redirectToPayment() {
+          // Get the current balance
+          const balanceElement = document.getElementById('balance');
+          const currentBalance = parseFloat(balanceElement.innerText.split('$')[1]);
+    
+          // Redirect to the payment page and pass the balance as a query parameter
+          window.location.href = "transfer.html";
+        }
+
+        function processPayment() {
+            alert('Payment successful');
+            window.location.href = "txnistory.html";
+        }
+      </script>
+</div>
+</body>
+</html>

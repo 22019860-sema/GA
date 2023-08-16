@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--
+    I declare that this code was written by me. 
+    I will not copy or allow others to copy my code. 
+    I understand that copying code is considered as plagiarism.
+    Student Name: Sema Nur Genc
+    Student ID: 22019860
+    Class: C369-3D-E63C-A
+    Date/Time Last modified: 14/8/2023
+  -->
+  <a href="account-verified.html">Back to my account</a>
+  <title>Transaction History</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      padding: 20px;
+    }
+
+    .transaction-history {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+
+    .transaction-history h1 {
+      color: #8a2be2;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .transaction-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .transaction-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .transaction-item:last-child {
+      border-bottom: none;
+    }
+
+    .transaction-description {
+      flex: 2;
+      font-size: 16px;
+    }
+
+    .transaction-date {
+      flex: 1;
+      font-size: 14px;
+      color: #777;
+    }
+
+    .transaction-amount {
+      flex: 1;
+      font-size: 18px;
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+  <div class="transaction-history">
+    <h1>Transaction History</h1>
+    <ul class="transaction-list" id="transaction-list"></ul>
+  </div>
+
+  <script>
+    const transactionList = document.getElementById('transaction-list');
+    const transactionHistory = JSON.parse(localStorage.getItem('transactionHistory')) || [];
+
+    transactionHistory.forEach(transaction => {
+      const listItem = document.createElement('li');
+      listItem.className = 'transaction-item';
+
+      const description = document.createElement('div');
+      description.className = 'transaction-description';
+      description.textContent = transaction.description;
+
+      const date = document.createElement('div');
+      date.className = 'transaction-date';
+      date.textContent = transaction.date;
+
+      const amount = document.createElement('div');
+      amount.className = 'transaction-amount';
+      amount.textContent = `$${transaction.amount}`;
+
+      listItem.appendChild(description);
+      listItem.appendChild(date);
+      listItem.appendChild(amount);
+
+      transactionList.appendChild(listItem);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <!--
+    I declare that this code was written by me. 
+    I will not copy or allow others to copy my code. 
+    I understand that copying code is considered as plagiarism.
+    Student Name: Sema Nur Genc
+    Student ID: 22019860
+    Class: C369-3D-E63C-A
+    Date/Time Last modified: 14/8/2023
+  -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Verification</title>
+</head>
+<style>
+    body, html {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        margin: 0;
+        height: 100%;
+    }
+    .center {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+    .logo {
+        width: 150px;
+        margin-top: 20px;
+    }
+    .blueBox {
+        background-color: #0070ba;
+        width: 300px;
+        height: 350px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+        box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    .texts {
+        font-size: 20px;
+        font-weight: bold;
+        font-style: italic;
+        color: #fff;
+        margin-bottom: 5px;
+    }
+    .texts2 {
+        font-size: 14px;
+        font-weight: lighter;
+        font-style: italic;
+        color: #fff;
+        margin-top: 0;
+    }
+    .qr-code {
+        width: 150px;
+        margin-top: 20px;
+    }
+</style>
+<body>
+    <div class="center">
+        <img src="logo.png" alt="PayPal Logo" class="logo">
+        <div class="blueBox">
+            <p class="texts">Scan with semBANKS App</p>
+            <p class="texts2">to verify your identity</p>
+            <img src="QR.jpg" alt="QR Code" class="qr-code">
+        </div>
+    </div>
+</body>
+<script>
+    // Redirect to account.html on QR code hover (for demonstration purposes)
+    document.querySelector(".qr-code").addEventListener("mouseover", function(event) {
+        event.preventDefault();
+        location.href = "loading.html";
+    });
+</script>
+</html>

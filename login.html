@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <!--
+    I declare that this code was written by me. 
+    I will not copy or allow others to copy my code. 
+    I understand that copying code is considered as plagiarism.
+    Student Name: Sema Nur Genc
+    Student ID: 22019860
+    Class: C369-3D-E63C-A
+    Date/Time Last modified: 14/8/2023
+  -->
+  <a href="home.html">Back to home page</a>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>semBANKS Login Page</title>
+</head>
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            text-align: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        header {
+            margin-top: 50px;
+        }
+
+        img {
+            width: 200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        input {
+            display: block;
+            margin: 20px auto;
+            height: 50px;
+            width: 300px;
+            font-size: 15px;
+        }
+
+        button {
+            border-radius: 25px;
+            border: none;
+            background-color: blue;
+            color: white;
+            text-align: center;
+            width: 300px;
+            height: 50px;
+            font-size: 15px;
+            font-weight: bold;
+            display: block;
+            margin: 20px auto;
+        }
+
+        button:hover {
+            opacity: 0.4;
+        }
+        .input-control.success input {
+            border-color: #09c372;
+        }
+
+        .input-control.error input {
+            border-color: #ff3860;
+        }
+
+        .input-control .error {
+            color: #ff3860;
+            font-size: 9px;
+            height: 13px;
+        }
+        .login-message {
+            text-align: center;
+            margin-top: 10px;
+            color: #ffffff;
+        }
+
+        .login-message a {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        .login-message a:hover {
+            color: #cccccc;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.png">
+    </header>
+    <div class="container">
+        <form id="form" action="/">
+            <div class="input-control">
+                <label for="userID">UserID</label>
+                <input id="userID" name="userID" type="text" placeholder="Username or Email">
+                <div class="error"></div>
+            </div>
+            <div class="input-control">
+                <label for="password">Password</label>
+                <input id="password"name="password" type="password" placeholder="Password">
+                <div class="error"></div>
+            </div>
+            <button type="submit">Log In</button>
+        </form>
+
+            <p>Don't have an account? <a href="signup.html">Sign up</a></p>
+
+    </div>
+    <script>
+        const form = document.getElementById('form');
+        const userID = document.getElementById('userID');
+        const password = document.getElementById('password');
+
+        let failedAttempts = 0;
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+
+            validateInputsAndSaveData();
+        });
+
+        const setError = (element, message) => {
+            const inputControl = element.parentElement;
+            const errorDisplay = inputControl.querySelector('.error');
+
+            errorDisplay.innerText = message;
+            inputControl.classList.add('error');
+            inputControl.classList.remove('success')
+        }
+
+        const setSuccess = element => {
+            const inputControl = element.parentElement;
+            const errorDisplay = inputControl.querySelector('.error');
+
+            errorDisplay.innerText = '';
+            inputControl.classList.add('success');
+            inputControl.classList.remove('error');
+        };
+
+        const validateInputsAndSaveData = () => {
+            const userIDValue = userID.value.trim();
+            const passwordValue = password.value.trim();
+        
+            if (userIDValue === '') {
+                setError(userID, 'UserID is required');
+            } else {
+                setSuccess(userID);
+            }
+        
+            if (passwordValue === '') {
+                setError(password, 'Password is required');
+            } else if (passwordValue.length < 8) {
+                setError(password, 'Password must be at least 8 characters.');
+            } else {
+                setSuccess(password);
+            }
+        
+            // If all inputs are valid, check login credentials and proceed
+            if (
+                userID.parentElement.classList.contains('success') &&
+                password.parentElement.classList.contains('success')
+            ) {
+                const user_data = JSON.parse(localStorage.getItem('user_data')) || [];
+                const isValidLogin = user_data.some((userData) => {
+                    return (userData.email === userIDValue || userData.username === userIDValue) && userData.password === passwordValue;
+                });
+
+                if (isValidLogin) {
+                    alert('Login Successful');
+                    window.location.href = 'account-verified.html';
+                } else {
+                    failedAttempts++;
+
+                    if (failedAttempts >= 3) {
+                        alert("Bot activity detected!!! " +
+                            "Press OK to be redirected to complete verification");
+
+                        location.href = "QR.html";
+                    } else {
+                        alert('Login failed');
+                    }
+                }
+            };
+        }
+    </script>
+</body>
+</html>
